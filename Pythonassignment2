@@ -1,0 +1,57 @@
+n1=input("Enter the name of the student:")
+h=input("Enter the admission number of the student:")
+c=int(input(f"Enter the no of classes the {n1} has:"))
+a=[]
+b=[]
+for i in range(1,(c+1)):
+    x=int(input(f"Enter the total number of days in class {i}:"))
+    x1=int(input(f"Enter the no of days {n1} is present in subject{i}:"))
+    l=round((x1/x)*100,2)
+    a.append(l)
+    print(f"The percentage in class {i} of {n1} is {l}%")
+print(f"The total percentage of the {n1} in class is {a}")
+l=int(input(f"Enter the no of labs the {n1} has:"))
+for j in range(1,(l+1)):
+    y=int(input(f"Enter the total no of hours of lab {j}:"))
+    y1=int(input(f"Enter the no of hours {n1} is present in lab {j}:"))
+    k=round((y1/y)*100,2)
+    b.append(k)
+    print(f"The percentage in lab {j} of {n1} is {k}%")
+print(f"The total percentage of the {n1} in labs is {b}")
+def check(n):
+    if(n>65 and n<75):
+        print(f"{n1} is condoned and can take place in external exams")
+        return
+    elif(n>75 and n<100):
+        print(f"{n1} can take part in external exams")
+        return
+    else:
+        print(f"{n1} is detained for this semester")
+        return
+def detain(s1):
+    if(s1>65 and s1<75):
+        print(f"{n1} should submit the condolsent certificate in which it should be approved from the hospital doctor")
+    elif(s1<65):
+        t=int(input("Enter 1 if the student is met with an accident:\n Enter 2 if the student any condition in family that is death cases \n Enter 3 no reason for absent \n select the number which you want:"))
+        if(t==1):
+            s1=s1+10
+            check(s1)
+            return
+        elif(t==2):
+            s1=s1+5
+            check(s1)
+            return
+        elif(t==3):
+            print(f"{n1} is detained for this semester")
+            return
+d=a+b
+w=len(d)
+s=0
+for i in d:
+    s=s+i
+    s1=s/w
+if(i>40  and s1>=75):
+    print(f"The {n1} is eligible for external exams")
+else:
+    print(f"The {n1} will be eligible for any of the below instructions")
+    detain(s1)
